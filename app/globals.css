@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overscroll-behavior: none;
+  background: #0a0a0b;
+}
+
+/* Lenis injects this class on <html> while smooth scrolling is active */
+html.lenis {
+  scroll-behavior: auto !important;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+::selection {
+  background: rgba(245, 244, 241, 0.2);
+  color: #f5f4f1;
+}
+
+/* ---------- Glassmorphism ---------- */
+.glass-pill {
+  background: rgba(20, 20, 22, 0.45);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+    0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- 3D headline cylinder ---------- */
+.headline-3d-stage {
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+}
+
+.headline-3d-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+/* ---------- Hero tilt wrapper ---------- */
+.tilt-wrapper {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* Hide default scrollbar chrome for a cleaner cinematic feel while
+   keeping scroll fully functional */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
