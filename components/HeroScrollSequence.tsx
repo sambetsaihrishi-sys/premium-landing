@@ -44,7 +44,7 @@ export default function HeroScrollSequence() {
 
   const reducedMotion = useReducedMotion();
   const isSmallViewport = useIsSmallViewport();
-  const staticMode = reducedMotion || isSmallViewport;
+  const staticMode = isSmallViewport;
 
   // ---- 1. Discover frames at runtime (never hardcoded) ----
   useEffect(() => {
